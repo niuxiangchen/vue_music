@@ -14,7 +14,7 @@
     <div class="zuixin">
       <h4>最新音乐</h4>
       <div>
-        <div class="zuixinWrap" v-for="(item,index) in list1" :key="index">
+        <div class="zuixinWrap" v-for="(item,index) in list1" :key="index" @click="goSong(item.id)">
           <div class="zuixinLeft">
             <p class="zuixinP1">{{item.name}}</p>
             <p class="zuixinP2">
@@ -49,6 +49,13 @@ export default {
       list:[],
       // 用来渲染最新音乐的数据
       list1:[]
+    }
+  },
+  methods:{
+    goSong(id){
+      console.log(id);
+      // 跳转到播放页，要带着id值过去
+      this.$router.push("/song?id="+id)
     }
   },
   // 生命周期，页面一进来
